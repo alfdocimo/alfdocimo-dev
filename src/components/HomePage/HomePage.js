@@ -1,5 +1,7 @@
-import React, { useState } from "react";
-import { useSelector } from "react-redux";
+import React, { useState, useEffect } from "react";
+import { setVM } from "../../actions";
+import { useSelector, useDispatch } from "react-redux";
+import { getSelectTest } from "../../selectors";
 
 import { Layout, Breadcrumb } from "antd";
 import SideMenu from "../SideMenu";
@@ -7,8 +9,9 @@ import SideMenu from "../SideMenu";
 const { Header, Content, Footer, Sider } = Layout;
 
 const HomePage = () => {
-  // eslint-disable-next-line no-console
-  const test = useSelector(state => state.homePageReducer.vm.test);
+  const dispatch = useDispatch();
+
+  const test = useSelector(getSelectTest);
 
   const [state, setState] = useState({
     collapsed: false
@@ -17,6 +20,11 @@ const HomePage = () => {
   const onCollapse = collapsed => {
     setState({ collapsed });
   };
+
+  useEffect(() => {
+    // When the component mounts, fetch data and populate VM
+    dispatch(setVM({ test: "arepas" }));
+  }, []);
 
   return (
     <Layout style={{ minHeight: "100vh" }}>
