@@ -1,8 +1,9 @@
 /// <reference types="cypress" />
 describe("My First Test", () => {
-  it('finds the content "type"', () => {
+  beforeEach(() => {
     cy.visit("/");
-
-    cy.contains("arepas");
+  });
+  it('finds the content "type"', () => {
+    cy.get('[data-testid="footer"]').should("have.text","arepas");
   });
 });

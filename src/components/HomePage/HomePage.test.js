@@ -10,6 +10,6 @@ jest.mock("../../selectors", () => ({
 
 test("can render with redux with defaults", () => {
   getSelectTest.mockReturnValue("Arepas");
-  const { debug } = renderWithRedux(<HomePage />);
-  debug();
+  const { getByTestId } = renderWithRedux(<HomePage />);
+  expect(getByTestId("footer").innerHTML).toBe("Arepas");
 });

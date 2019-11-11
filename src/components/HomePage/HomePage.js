@@ -42,7 +42,7 @@ const HomePage = () => {
             Bill is a cat.
           </div>
         </Content>
-        <Footer style={{ textAlign: "center" }}>{test}</Footer>
+        <Footer data-testid="footer" style={{ textAlign: "center" }}>{test}</Footer>
       </Layout>
     </Layout>
   );
