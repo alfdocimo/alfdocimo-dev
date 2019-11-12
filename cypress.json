@@ -1,5 +1,5 @@
 {
   "baseUrl": "http://localhost:3000/",
-  "integrationFolder": "./src/components",
-  "testFiles": "**/*.spec.js"
+  "testFiles": "**/*.spec.js",
+  "projectId": "qtx1fz"
 }
