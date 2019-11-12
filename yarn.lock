@@ -707,7 +707,7 @@
     core-js "^2.6.5"
     regenerator-runtime "^0.13.2"
 
-"@babel/polyfill@^7.0.0", "@babel/polyfill@^7.4.4":
+"@babel/polyfill@^7.0.0", "@babel/polyfill@^7.2.5", "@babel/polyfill@^7.4.4":
   version "7.7.0"
   resolved "https://agency-commerce.pkgs.visualstudio.com/_packaging/Default/npm/registry/@babel/polyfill/-/polyfill-7.7.0.tgz#e1066e251e17606ec7908b05617f9b7f8180d8f3"
   integrity sha1-4QZuJR4XYG7HkIsFYX+bf4GA2PM=
@@ -856,6 +856,14 @@
   dependencies:
     debug "^3.1.0"
     lodash.once "^4.1.1"
+
+"@fullpage/react-fullpage@0.1.16":
+  version "0.1.16"
+  resolved "https://agency-commerce.pkgs.visualstudio.com/_packaging/Default/npm/registry/@fullpage/react-fullpage/-/react-fullpage-0.1.16.tgz#aa78031dd94880ca59aa14d42d973f5514a72ded"
+  integrity sha1-qngDHdlIgMpZqhTULZc/VRSnLe0=
+  dependencies:
+    "@babel/polyfill" "^7.2.5"
+    fullpage.js "^3.0.7"
 
 "@hot-loader/react-dom@16.8.6":
   version "16.8.6"
@@ -4460,6 +4468,11 @@ fstream@^1.0.0, fstream@^1.0.12:
     inherits "~2.0.0"
     mkdirp ">=0.5 0"
     rimraf "2"
+
+fullpage.js@^3.0.7:
+  version "3.0.7"
+  resolved "https://agency-commerce.pkgs.visualstudio.com/_packaging/Default/npm/registry/fullpage.js/-/fullpage.js-3.0.7.tgz#27d4815f39ad26019bf96dbc7644ac7ec6226f39"
+  integrity sha1-J9SBXzmtJgGb+W28dkSsfsYibzk=
 
 function-bind@^1.1.1:
   version "1.1.1"

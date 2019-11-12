@@ -3,10 +3,11 @@ import { setVM } from "../../actions";
 import { useSelector, useDispatch } from "react-redux";
 import { getSelectTest } from "../../selectors";
 
-import { Layout, Breadcrumb } from "antd";
+import { Layout } from "antd";
 import SideMenu from "../SideMenu";
-
-const { Header, Content, Footer, Sider } = Layout;
+import Fullpage from "../../components/Content";
+import "./style.less";
+const { Content, Footer, Sider } = Layout;
 
 const HomePage = () => {
   const dispatch = useDispatch();
@@ -27,24 +28,27 @@ const HomePage = () => {
   }, []);
 
   return (
-    <Layout style={{ minHeight: "100vh" }}>
-      <Sider collapsible collapsed={state.collapsed} onCollapse={onCollapse}>
-        <SideMenu />
-      </Sider>
-      <Layout>
-        <Header style={{ background: "#fff", padding: 0 }} />
-        <Content style={{ margin: "0 16px" }}>
-          <Breadcrumb style={{ margin: "16px 0" }}>
-            <Breadcrumb.Item>User</Breadcrumb.Item>
-            <Breadcrumb.Item>Bill</Breadcrumb.Item>
-          </Breadcrumb>
-          <div style={{ padding: 24, background: "#fff", minHeight: 360 }}>
-            Bill is a cat.
-          </div>
-        </Content>
-        <Footer data-testid="footer" style={{ textAlign: "center" }}>{test}</Footer>
+    <div className="HomePage">
+      <Layout style={{ minHeight: "100vh" }}>
+        <Sider
+          collapsible
+          collapsed={state.collapsed}
+          onCollapse={onCollapse}
+          collapsedWidth={0}
+          style={{ position: "absolute", height: "100%", zIndex: 1 }}
+        >
+          <SideMenu />
+        </Sider>
+        <Layout>
+          <Content>
+            <Fullpage />
+          </Content>
+          <Footer data-testid="footer" style={{ textAlign: "center" }}>
+            {test}
+          </Footer>
+        </Layout>
       </Layout>
-    </Layout>
+    </div>
   );
 };
 
