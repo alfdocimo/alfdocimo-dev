@@ -41,8 +41,8 @@ const HomePage = () => {
         </Sider>
         <Layout>
           <Content>
-            <Landing />
-            <Landing id="section-2"/>
+            <Landing id="section-1" />
+            <Landing id="section-2" />
           </Content>
         </Layout>
       </Layout>

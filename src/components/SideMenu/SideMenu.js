@@ -5,17 +5,17 @@ const { SubMenu } = Menu;
 import "./style.less";
 
 const SideMenu = () => {
-  const handleClickSection = sectionNumber => {
-    const section = document.getElementById(`section-${sectionNumber}`);
+  const handleClickSection = elem => {
+    const section = document.getElementById(`section-${elem.key}`);
     section.scrollIntoView({ block: "end", behavior: "smooth" });
   };
   return (
     <Menu theme="dark" defaultSelectedKeys={["1"]} mode="inline">
-      <Menu.Item key="1">
+      <Menu.Item key="1" onClick={e => handleClickSection(e)}>
         <Icon type="pie-chart" />
         <span>Option 1</span>
       </Menu.Item>
-      <Menu.Item key="2" onClick={() => handleClickSection(2)}>
+      <Menu.Item key="2" onClick={e => handleClickSection(e)}>
         <Icon type="desktop" />
         <span>Option 2</span>
       </Menu.Item>
