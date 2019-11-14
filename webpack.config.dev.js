@@ -2,7 +2,7 @@ import webpack from "webpack";
 import HtmlWebpackPlugin from "html-webpack-plugin";
 import path from "path";
 import HardSourceWebpackPlugin from "hard-source-webpack-plugin";
-import theme from "./theme.config";
+import theme from "./src/styles/vars";
 
 export default {
   resolve: {

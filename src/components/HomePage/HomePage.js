@@ -5,7 +5,7 @@ import { getSelectTest } from "../../selectors";
 
 import { Layout } from "antd";
 import SideMenu from "../SideMenu";
-import Fullpage from "../../components/Content";
+import Landing from "../../components/Content/Sections/Landing";
 import "./style.less";
 const { Content, Footer, Sider } = Layout;
 
@@ -41,11 +41,9 @@ const HomePage = () => {
         </Sider>
         <Layout>
           <Content>
-            <Fullpage />
+            <Landing />
+            <Landing id="section-2"/>
           </Content>
-          <Footer data-testid="footer" style={{ textAlign: "center" }}>
-            {test}
-          </Footer>
         </Layout>
       </Layout>
     </div>
