@@ -1,11 +1,11 @@
 import React from "react";
-import "./style.less";
 import PropTypes from "prop-types";
+import "./style.less";
 
 const Landing = ({ id }) => {
   return (
-    <div className="LandingHeader" id={id}>
-      <h1 className="LandingHeader__title">Alfredo Narváez</h1>
+    <div className="About" id={id}>
+      <h1>Me gustan muxo las arepas</h1>
     </div>
   );
 };

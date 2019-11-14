@@ -6,6 +6,7 @@ import { getSelectTest } from "../../selectors";
 import { Layout } from "antd";
 import SideMenu from "../SideMenu";
 import Landing from "../../components/Content/Sections/Landing";
+import About from "../../components/Content/Sections/About";
 import "./style.less";
 const { Content, Footer, Sider } = Layout;
 
@@ -42,7 +43,7 @@ const HomePage = () => {
         <Layout>
           <Content>
             <Landing id="section-1" />
-            <Landing id="section-2" />
+            <About id="section-2" />
           </Content>
         </Layout>
       </Layout>
