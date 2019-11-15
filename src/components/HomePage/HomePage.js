@@ -1,7 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { setVM } from "../../actions";
 import { useDispatch, useSelector } from "react-redux";
-import { getSelectLandingName } from "../../selectors";
+import {
+  getSelectLanding,
+  getSelectAbout,
+  getSelectMenu
+} from "../../selectors";
 import firebase from "../../firebase";
 
 import { Layout } from "antd";
@@ -35,7 +39,9 @@ const HomePage = () => {
       });
   }, []);
 
-  const name = useSelector(getSelectLandingName);
+  const { title, subtitle } = useSelector(getSelectLanding);
+  const { test } = useSelector(getSelectAbout);
+  const menu = useSelector(getSelectMenu);
 
   return (
     <div className="HomePage">
@@ -47,12 +53,12 @@ const HomePage = () => {
           collapsedWidth={0}
           style={{ position: "absolute", height: "100%", zIndex: 1 }}
         >
-          <SideMenu />
+          {menu && <SideMenu items={menu} />}
         </Sider>
         <Layout>
           <Content>
-            <Landing id="section-1" name={name} />
-            <About id="section-2" />
+            <Landing id="section-1" title={title} subtitle={subtitle} />
+            <About id="section-2" test={test} />
           </Content>
         </Layout>
       </Layout>

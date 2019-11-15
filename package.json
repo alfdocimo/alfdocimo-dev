@@ -35,7 +35,6 @@
   "author": "Cory House",
   "license": "MIT",
   "dependencies": {
-    "@fullpage/react-fullpage": "0.1.16",
     "@hot-loader/react-dom": "16.8.6",
     "antd": "latest",
     "connected-react-router": "6.4.0",
@@ -58,8 +57,6 @@
     "@babel/preset-env": "7.4.4",
     "@babel/preset-react": "7.0.0",
     "@testing-library/react": "9.3.2",
-    "acorn": "6.1.1",
-    "ajv": "6.10.0",
     "autoprefixer": "9.5.1",
     "babel-core": "7.0.0-bridge.0",
     "babel-eslint": "10.0.1",
