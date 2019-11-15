@@ -1,5 +1,9 @@
 export default {
   vm: {
-    test: "cosa"
+    pages: {
+      landing: {
+        name: "Alfredo Narváez Docimo"
+      }
+    }
   }
 };

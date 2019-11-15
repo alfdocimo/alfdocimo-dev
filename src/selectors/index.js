@@ -1,2 +1,2 @@
-import getSelectTest from "./getSelectTest";
-export { getSelectTest };
+import getSelectLandingName from "./getSelectLandingName";
+export { getSelectLandingName };

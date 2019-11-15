@@ -39,6 +39,7 @@
     "@hot-loader/react-dom": "16.8.6",
     "antd": "latest",
     "connected-react-router": "6.4.0",
+    "firebase": "7.4.0",
     "react": "16.11.0",
     "react-dom": "16.11.0",
     "react-redux": "7.1.1",
