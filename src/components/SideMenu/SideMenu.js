@@ -16,6 +16,7 @@ const SideMenu = ({ items }) => {
         key={item.key}
         onClick={e => handleClickSection(e)}
         style={{ marginTop: "0px" }}
+        data-testid={`btn-${item.section.replace(" ", "-").toLowerCase()}`}
       >
         <Icon type={item.sticker} />
         <span>{item.section}</span>

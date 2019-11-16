@@ -4,6 +4,6 @@ describe("My First Test", () => {
     cy.visit("/");
   });
   it('finds the content "type"', () => {
-    cy.get('[data-testid="footer"]').should("have.text","arepas");
+    cy.get('[data-testid="btn-about-me"]').should("have.text", "About Me");
   });
 });

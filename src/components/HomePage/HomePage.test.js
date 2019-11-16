@@ -2,22 +2,36 @@ import React from "react";
 
 import HomePage from "./HomePage";
 import { renderWithRedux } from "../../utils/testing";
-import { getSelectTest } from "../../selectors";
+import {
+  getSelectLanding,
+  getSelectAbout,
+  getSelectMenu
+} from "../../selectors";
 
 jest.mock("../../selectors", () => ({
-  getSelectTest: jest.fn()
+  getSelectLanding: jest.fn(),
+  getSelectAbout: jest.fn(),
+  getSelectMenu: jest.fn()
 }));
+
 jest.mock("./style.less", () => ({
   HomePage: "HomePage"
 }));
-jest.mock("../../components/Content/Fullpage", () =>
-  // eslint-disable-next-line react/display-name
-  () => <div>Main Page</div>
-);
 
 test("can render with redux with defaults", async () => {
-  getSelectTest.mockReturnValue("Arepas");
-  const { getByTestId, debug } = renderWithRedux(<HomePage />);
-  debug();
-  expect(getByTestId("footer").innerHTML).toBe("Arepas");
+  getSelectLanding.mockReturnValue({
+    title: "Alfredo Narváez Docimo",
+    subtitle: "Software Engineer"
+  });
+  getSelectAbout.mockReturnValue({ test: "test" });
+  getSelectMenu.mockReturnValue([
+    { key: "1", section: "Home", sticker: "smile" },
+    { key: "2", section: "About Me", sticker: "user" }
+  ]);
+  const { getByText } = renderWithRedux(<HomePage />);
+  expect(getByText("About Me")).toMatchInlineSnapshot(`
+  <span>
+    About Me
+  </span>
+`);
 });
