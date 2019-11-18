@@ -27,16 +27,22 @@ const HomePage = () => {
   };
 
   useEffect(() => {
-    // When the component mounts, fetch data and populate VM
-    firebase
-      .firestore()
-      .collection("vm")
-      .get()
-      .then(({ docs }) => {
-        const vm = docs.map(doc => doc.data())[0];
-
-        dispatch(setVM(vm));
-      });
+    // Check if VM is stored in sessionStorage
+    const vm = window.sessionStorage.getItem("vm");
+    if (vm) {
+      dispatch(setVM(JSON.parse(vm)));
+    } else {
+      // When the component mounts, fetch data and populate VM
+      firebase
+        .firestore()
+        .collection("vm")
+        .get()
+        .then(({ docs }) => {
+          const vm = docs.map(doc => doc.data())[0];
+          window.sessionStorage.setItem("vm", JSON.stringify(vm));
+          dispatch(setVM(vm));
+        });
+    }
   }, []);
 
   const { title, subtitle } = useSelector(getSelectLanding);

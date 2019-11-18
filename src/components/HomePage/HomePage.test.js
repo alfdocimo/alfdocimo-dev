@@ -8,6 +8,8 @@ import {
   getSelectMenu
 } from "../../selectors";
 
+import { fireEvent } from "@testing-library/react";
+
 jest.mock("../../selectors", () => ({
   getSelectLanding: jest.fn(),
   getSelectAbout: jest.fn(),
@@ -19,6 +21,11 @@ jest.mock("./style.less", () => ({
 }));
 
 test("can render with redux with defaults", async () => {
+  const scrollIntoViewSpy = jest.fn();
+
+  // https://github.com/jsdom/jsdom/issues/1695
+  window.HTMLElement.prototype.scrollIntoView = scrollIntoViewSpy;
+
   getSelectLanding.mockReturnValue({
     title: "Alfredo Narváez Docimo",
     subtitle: "Software Engineer"
@@ -34,4 +41,10 @@ test("can render with redux with defaults", async () => {
     About Me
   </span>
 `);
+
+  fireEvent.click(getByText("Home"));
+  expect(scrollIntoViewSpy).toHaveBeenCalledWith({
+    behavior: "smooth",
+    block: "end"
+  });
 });
