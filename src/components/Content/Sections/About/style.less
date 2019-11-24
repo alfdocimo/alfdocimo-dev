@@ -11,4 +11,42 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
+  color: @text-color-secondary;
+
+  position: relative;
+
+  &__cornerRight {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    border-top: 500px solid @primary-color;
+    border-left: 250vh solid transparent;
+  }
+
+  /*
+  &__cornerLeft {
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    border-bottom: 500px solid #eb01a5;
+    border-right: 30vh solid transparent;
+  }
+  */
+
+  &__textContainer {
+    @media only screen and (max-width: 600px) {
+      width: 80%;
+    }
+    width: 50%;
+    z-index: 0;
+  }
+
+  &__title {
+    font-size: 2em;
+  }
+
+  &__content {
+    font-size: 1.2em;
+  }
 }

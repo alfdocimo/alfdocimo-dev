@@ -19,7 +19,7 @@ const HomePage = () => {
   const dispatch = useDispatch();
 
   const [state, setState] = useState({
-    collapsed: false
+    collapsed: true
   });
 
   const onCollapse = collapsed => {
@@ -45,8 +45,8 @@ const HomePage = () => {
     }
   }, []);
 
-  const { title, subtitle } = useSelector(getSelectLanding);
-  const { test } = useSelector(getSelectAbout);
+  const landingContent = useSelector(getSelectLanding);
+  const aboutContent = useSelector(getSelectAbout);
   const menu = useSelector(getSelectMenu);
 
   return (
@@ -63,8 +63,8 @@ const HomePage = () => {
         </Sider>
         <Layout>
           <Content>
-            <Landing id="section-1" title={title} subtitle={subtitle} />
-            <About id="section-2" test={test} />
+            <Landing id="section-1" {...landingContent} />
+            <About id="section-2" {...aboutContent} />
           </Content>
         </Layout>
       </Layout>

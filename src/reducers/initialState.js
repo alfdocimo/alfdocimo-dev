@@ -3,9 +3,10 @@ export default {
     pages: {
       landing: {
         title: "Alfredo Narváez Docimo",
-        subtitle: "Software Engineer"
+        subtitle: "Software Engineer",
+        cta: "More about me!"
       },
-      about: { test: "test" }
+      about: { title: "Who is Alfredo?", content: "A dude who likes arepas!" }
     },
     menu: [
       { key: "1", section: "Home", sticker: "smile" },

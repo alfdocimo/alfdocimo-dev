@@ -1,6 +1,11 @@
+@import "../../../../styles/vars.less";
+
 .LandingHeader {
-  background: url("../../../../images/header-bg.jpg");
-  background: linear-gradient(to bottom right, #eb01a5, rgba(255, 255, 255, 0)),
+  background: linear-gradient(
+      to top,
+      @primary-color,
+      rgba(251, 151, 239, 0.23)
+    ),
     url("../../../../images/header-bg.jpg");
   background-position: center;
   background-size: cover;
@@ -14,12 +19,16 @@
   align-items: center;
 
   &__title {
-    color: #ffffff;
-    font-size: 1.5em;
+    color: @text-color;
+    font-size: 1.8em;
   }
 
   &__subtitle {
-    color: #ffffff;
-    font-size: 1em;
+    color: @text-color;
+    font-size: 1.2em;
+  }
+
+  &__cta {
+    padding-top: 15px;
   }
 }

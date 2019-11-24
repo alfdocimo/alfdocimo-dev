@@ -2,17 +2,23 @@ import React from "react";
 import PropTypes from "prop-types";
 import "./style.less";
 
-const Landing = ({ id, test }) => {
+const About = ({ id, title, content }) => {
   return (
     <div className="About" id={id}>
-      <h1>{test}</h1>
+      <div className="About__cornerRight" />
+      {/* <div className="About__cornerLeft" /> */}
+      <div className="About__textContainer">
+        <h1 className="About__title">{title}</h1>
+        <span className="About__content">{content}</span>
+      </div>
     </div>
   );
 };
 
-Landing.propTypes = {
+About.propTypes = {
   id: PropTypes.string,
-  test: PropTypes.string
+  title: PropTypes.string,
+  content: PropTypes.string
 };
 
-export default Landing;
+export default About;
