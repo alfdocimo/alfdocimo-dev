@@ -1,7 +1,6 @@
 @import "../../../../styles/vars.less";
 
 .About {
-  background: @text-color;
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -20,6 +19,10 @@
     position: absolute;
     top: 0px;
     right: 0px;
+    @media only screen and (max-width: 600px) {
+      border-top: 250px solid @primary-color;
+      border-left: 100vh solid transparent;
+    }
     border-top: 500px solid @primary-color;
     border-left: 250vh solid transparent;
   }
@@ -36,17 +39,26 @@
 
   &__textContainer {
     @media only screen and (max-width: 600px) {
-      width: 80%;
+      width: 85%;
     }
-    width: 50%;
+    width: 60%;
     z-index: 0;
   }
 
   &__title {
+    @media only screen and (max-width: 600px) {
+      font-size: 1.5em;
+    }
     font-size: 2em;
   }
 
   &__content {
+    @media only screen and (max-width: 600px) {
+      font-size: 1em;
+      line-height: 30px;
+    }
     font-size: 1.2em;
+    color: @heading-color;
+    line-height: 40px;
   }
 }
