@@ -10,6 +10,15 @@ import {
 
 import { fireEvent } from "@testing-library/react";
 
+import initialState from "../../reducers/initialState";
+
+const {
+  vm: {
+    pages: { landing, about }
+  },
+  menu
+} = initialState;
+
 jest.mock("../../selectors", () => ({
   getSelectLanding: jest.fn(),
   getSelectAbout: jest.fn(),
@@ -20,31 +29,58 @@ jest.mock("./style.less", () => ({
   HomePage: "HomePage"
 }));
 
-test("can render with redux with defaults", async () => {
-  const scrollIntoViewSpy = jest.fn();
+const scrollIntoViewSpy = jest.fn();
 
-  // https://github.com/jsdom/jsdom/issues/1695
-  window.HTMLElement.prototype.scrollIntoView = scrollIntoViewSpy;
+describe("[HomePage Component]", () => {
+  beforeEach(() => {
+    // https://github.com/jsdom/jsdom/issues/1695
+    window.HTMLElement.prototype.scrollIntoView = scrollIntoViewSpy;
 
-  getSelectLanding.mockReturnValue({
-    title: "Alfredo Narváez Docimo",
-    subtitle: "Software Engineer"
+    getSelectLanding.mockReturnValue(landing);
+    getSelectAbout.mockReturnValue(about);
+    getSelectMenu.mockReturnValue(menu);
   });
-  getSelectAbout.mockReturnValue({ test: "test" });
-  getSelectMenu.mockReturnValue([
-    { key: "1", section: "Home", sticker: "smile" },
-    { key: "2", section: "About Me", sticker: "user" }
-  ]);
-  const { getByText } = renderWithRedux(<HomePage />);
-  expect(getByText("About Me")).toMatchInlineSnapshot(`
-  <span>
-    About Me
-  </span>
-`);
 
-  fireEvent.click(getByText("Home"));
-  expect(scrollIntoViewSpy).toHaveBeenCalledWith({
-    behavior: "smooth",
-    block: "end"
+  describe("[Landing Section]", () => {
+    test("can render with redux with defaults", async () => {
+      const { getByText } = renderWithRedux(<HomePage />);
+
+      expect(getByText("Alfredo Narváez Docimo")).toMatchInlineSnapshot(`
+      <h1
+        class="LandingHeader__title"
+      >
+        Alfredo Narváez Docimo
+      </h1>
+    `);
+
+      expect(getByText("Software Engineer")).toMatchInlineSnapshot(`
+      <h2
+        class="LandingHeader__subtitle"
+      >
+        Software Engineer
+      </h2>
+    `);
+    });
+  });
+
+  describe("[Scroll Actions]", () => {
+    test("Its able to scroll to section when clicking on SideMenu Section", () => {
+      const { getByLabelText, getByText } = renderWithRedux(<HomePage />);
+      fireEvent.click(getByLabelText("icon: bars"));
+      fireEvent.click(getByText("About Me"));
+      expect(scrollIntoViewSpy).toHaveBeenCalledWith({
+        behavior: "smooth",
+        block: "end"
+      });
+    });
+
+    test("Its able to scroll to section when clicking on More About Me Button", () => {
+      const { getByText } = renderWithRedux(<HomePage />);
+      fireEvent.click(getByText("More about me!"));
+      expect(scrollIntoViewSpy).toHaveBeenCalledWith({
+        behavior: "smooth",
+        block: "end"
+      });
+    });
   });
 });

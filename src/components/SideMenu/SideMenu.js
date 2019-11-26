@@ -24,7 +24,12 @@ const SideMenu = ({ items }) => {
     ));
 
   return (
-    <Menu theme="dark" defaultSelectedKeys={["1"]} mode="inline">
+    <Menu
+      theme="dark"
+      defaultSelectedKeys={["1"]}
+      mode="inline"
+      data-testid="side-menu"
+    >
       {renderSections(items)}
     </Menu>
   );
