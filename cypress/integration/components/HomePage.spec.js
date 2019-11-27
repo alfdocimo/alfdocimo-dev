@@ -1,9 +1,12 @@
+/* eslint-disable no-undef */
 /// <reference types="cypress" />
-describe("My First Test", () => {
+describe("E2E [HomePage] Integration test", () => {
   beforeEach(() => {
     cy.visit("/");
   });
-  it('finds the content "type"', () => {
-    cy.get('[data-testid="btn-about-me"]').should("have.text", "About Me");
+  it('renders correctly data from the VM in [Landing]', () => {
+    cy.get('#section-1 > h1').should("have.text", "Alfredo Narváez Docimo");
+    cy.get('#section-1 > h2').should("have.text", "Full Stack JavaScript Engineer");
+    cy.get('#section-1 > div > button').should("have.text", "More about me!");
   });
 });
