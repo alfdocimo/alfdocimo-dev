@@ -707,7 +707,7 @@
     core-js "^2.6.5"
     regenerator-runtime "^0.13.2"
 
-"@babel/polyfill@^7.0.0", "@babel/polyfill@^7.2.5", "@babel/polyfill@^7.4.4":
+"@babel/polyfill@^7.0.0", "@babel/polyfill@^7.4.4":
   version "7.7.0"
   resolved "https://agency-commerce.pkgs.visualstudio.com/_packaging/Default/npm/registry/@babel/polyfill/-/polyfill-7.7.0.tgz#e1066e251e17606ec7908b05617f9b7f8180d8f3"
   integrity sha1-4QZuJR4XYG7HkIsFYX+bf4GA2PM=
@@ -795,6 +795,13 @@
   version "7.7.2"
   resolved "https://agency-commerce.pkgs.visualstudio.com/_packaging/Default/npm/registry/@babel/runtime/-/runtime-7.7.2.tgz#111a78002a5c25fc8e3361bedc9529c696b85a6a"
   integrity sha1-ERp4ACpcJfyOM2G+3JUpxpa4Wmo=
+  dependencies:
+    regenerator-runtime "^0.13.2"
+
+"@babel/runtime@^7.5.1":
+  version "7.7.4"
+  resolved "https://agency-commerce.pkgs.visualstudio.com/_packaging/Default/npm/registry/@babel/runtime/-/runtime-7.7.4.tgz#b23a856751e4bf099262f867767889c0e3fe175b"
+  integrity sha1-sjqFZ1HkvwmSYvhndniJwOP+F1s=
   dependencies:
     regenerator-runtime "^0.13.2"
 
@@ -1054,14 +1061,6 @@
   resolved "https://agency-commerce.pkgs.visualstudio.com/_packaging/Default/npm/registry/@firebase/webchannel-wrapper/-/webchannel-wrapper-0.2.31.tgz#7f764fe54c332aa05aa6650bc540f5eebd9b782a"
   integrity sha1-f3ZP5UwzKqBapmULxUD17r2beCo=
 
-"@fullpage/react-fullpage@0.1.16":
-  version "0.1.16"
-  resolved "https://agency-commerce.pkgs.visualstudio.com/_packaging/Default/npm/registry/@fullpage/react-fullpage/-/react-fullpage-0.1.16.tgz#aa78031dd94880ca59aa14d42d973f5514a72ded"
-  integrity sha1-qngDHdlIgMpZqhTULZc/VRSnLe0=
-  dependencies:
-    "@babel/polyfill" "^7.2.5"
-    fullpage.js "^3.0.7"
-
 "@grpc/proto-loader@^0.5.0":
   version "0.5.3"
   resolved "https://agency-commerce.pkgs.visualstudio.com/_packaging/Default/npm/registry/@grpc/proto-loader/-/proto-loader-0.5.3.tgz#a233070720bf7560c4d70e29e7950c72549a132c"
@@ -1297,6 +1296,21 @@
     aria-query "3.0.0"
     pretty-format "^24.9.0"
     wait-for-expect "^3.0.0"
+
+"@testing-library/jest-dom@4.2.4":
+  version "4.2.4"
+  resolved "https://agency-commerce.pkgs.visualstudio.com/_packaging/Default/npm/registry/@testing-library/jest-dom/-/jest-dom-4.2.4.tgz#00dfa0cbdd837d9a3c2a7f3f0a248ea6e7b89742"
+  integrity sha1-AN+gy92DfZo8Kn8/CiSOpue4l0I=
+  dependencies:
+    "@babel/runtime" "^7.5.1"
+    chalk "^2.4.1"
+    css "^2.2.3"
+    css.escape "^1.5.1"
+    jest-diff "^24.0.0"
+    jest-matcher-utils "^24.0.0"
+    lodash "^4.17.11"
+    pretty-format "^24.0.0"
+    redent "^3.0.0"
 
 "@testing-library/react@9.3.2":
   version "9.3.2"
@@ -1649,11 +1663,6 @@ acorn-walk@^6.0.1, acorn-walk@^6.1.1:
   resolved "https://agency-commerce.pkgs.visualstudio.com/_packaging/Default/npm/registry/acorn-walk/-/acorn-walk-6.2.0.tgz#123cb8f3b84c2171f1f7fb252615b1c78a6b1a8c"
   integrity sha1-Ejy487hMIXHx9/slJhWxx4prGow=
 
-acorn@6.1.1:
-  version "6.1.1"
-  resolved "https://agency-commerce.pkgs.visualstudio.com/_packaging/Default/npm/registry/acorn/-/acorn-6.1.1.tgz#7d25ae05bb8ad1f9b699108e1094ecd7884adc1f"
-  integrity sha1-fSWuBbuK0fm2mRCOEJTs14hK3B8=
-
 acorn@^5.5.3:
   version "5.7.3"
   resolved "https://agency-commerce.pkgs.visualstudio.com/_packaging/Default/npm/registry/acorn/-/acorn-5.7.3.tgz#67aa231bf8812974b85235a96771eb6bd07ea279"
@@ -1685,16 +1694,6 @@ ajv-keywords@^3.1.0:
   version "3.4.1"
   resolved "https://agency-commerce.pkgs.visualstudio.com/_packaging/Default/npm/registry/ajv-keywords/-/ajv-keywords-3.4.1.tgz#ef916e271c64ac12171fd8384eaae6b2345854da"
   integrity sha1-75FuJxxkrBIXH9g4TqrmsjRYVNo=
-
-ajv@6.10.0:
-  version "6.10.0"
-  resolved "https://agency-commerce.pkgs.visualstudio.com/_packaging/Default/npm/registry/ajv/-/ajv-6.10.0.tgz#90d0d54439da587cd7e843bfb7045f50bd22bdf1"
-  integrity sha1-kNDVRDnaWHzX6EO/twRfUL0ivfE=
-  dependencies:
-    fast-deep-equal "^2.0.1"
-    fast-json-stable-stringify "^2.0.0"
-    json-schema-traverse "^0.4.1"
-    uri-js "^4.2.2"
 
 ajv@^4.9.1:
   version "4.11.8"
@@ -3367,6 +3366,21 @@ css-what@^3.2.1:
   resolved "https://agency-commerce.pkgs.visualstudio.com/_packaging/Default/npm/registry/css-what/-/css-what-3.2.1.tgz#f4a8f12421064621b456755e34a03a2c22df5da1"
   integrity sha1-9KjxJCEGRiG0VnVeNKA6LCLfXaE=
 
+css.escape@^1.5.1:
+  version "1.5.1"
+  resolved "https://agency-commerce.pkgs.visualstudio.com/_packaging/Default/npm/registry/css.escape/-/css.escape-1.5.1.tgz#42e27d4fa04ae32f931a4b4d4191fa9cddee97cb"
+  integrity sha1-QuJ9T6BK4y+TGktNQZH6nN3ul8s=
+
+css@^2.2.3:
+  version "2.2.4"
+  resolved "https://agency-commerce.pkgs.visualstudio.com/_packaging/Default/npm/registry/css/-/css-2.2.4.tgz#c646755c73971f2bba6a601e2cf2fd71b1298929"
+  integrity sha1-xkZ1XHOXHyu6amAeLPL9cbEpiSk=
+  dependencies:
+    inherits "^2.0.3"
+    source-map "^0.6.1"
+    source-map-resolve "^0.5.2"
+    urix "^0.1.0"
+
 cssesc@^2.0.0:
   version "2.0.0"
   resolved "https://agency-commerce.pkgs.visualstudio.com/_packaging/Default/npm/registry/cssesc/-/cssesc-2.0.0.tgz#3b13bd1bb1cb36e1bcb5a4dcd27f54c5dcb35703"
@@ -4807,11 +4821,6 @@ fstream@^1.0.0, fstream@^1.0.12:
     mkdirp ">=0.5 0"
     rimraf "2"
 
-fullpage.js@^3.0.7:
-  version "3.0.7"
-  resolved "https://agency-commerce.pkgs.visualstudio.com/_packaging/Default/npm/registry/fullpage.js/-/fullpage.js-3.0.7.tgz#27d4815f39ad26019bf96dbc7644ac7ec6226f39"
-  integrity sha1-J9SBXzmtJgGb+W28dkSsfsYibzk=
-
 function-bind@^1.1.1:
   version "1.1.1"
   resolved "https://agency-commerce.pkgs.visualstudio.com/_packaging/Default/npm/registry/function-bind/-/function-bind-1.1.1.tgz#a56899d3ea3c9bab874bb9773b7c5ede92f4895d"
@@ -5495,6 +5504,11 @@ indent-string@^3.0.0:
   resolved "https://agency-commerce.pkgs.visualstudio.com/_packaging/Default/npm/registry/indent-string/-/indent-string-3.2.0.tgz#4a5fd6d27cc332f37e5419a504dbb837105c9289"
   integrity sha1-Sl/W0nzDMvN+VBmlBNu4NxBckok=
 
+indent-string@^4.0.0:
+  version "4.0.0"
+  resolved "https://agency-commerce.pkgs.visualstudio.com/_packaging/Default/npm/registry/indent-string/-/indent-string-4.0.0.tgz#624f8f4497d619b2d9768531d58f4122854d7251"
+  integrity sha1-Yk+PRJfWGbLZdoUx1Y9BIoVNclE=
+
 indexes-of@^1.0.1:
   version "1.0.1"
   resolved "https://agency-commerce.pkgs.visualstudio.com/_packaging/Default/npm/registry/indexes-of/-/indexes-of-1.0.1.tgz#f30f716c8e2bd346c7b67d3df3915566a7c05607"
@@ -6015,7 +6029,7 @@ jest-config@^24.8.0, jest-config@^24.9.0:
     pretty-format "^24.9.0"
     realpath-native "^1.1.0"
 
-jest-diff@^24.9.0:
+jest-diff@^24.0.0, jest-diff@^24.9.0:
   version "24.9.0"
   resolved "https://agency-commerce.pkgs.visualstudio.com/_packaging/Default/npm/registry/jest-diff/-/jest-diff-24.9.0.tgz#931b7d0d5778a1baf7452cb816e325e3724055da"
   integrity sha1-kxt9DVd4obr3RSy4FuMl43JAVdo=
@@ -6120,7 +6134,7 @@ jest-leak-detector@^24.9.0:
     jest-get-type "^24.9.0"
     pretty-format "^24.9.0"
 
-jest-matcher-utils@^24.9.0:
+jest-matcher-utils@^24.0.0, jest-matcher-utils@^24.9.0:
   version "24.9.0"
   resolved "https://agency-commerce.pkgs.visualstudio.com/_packaging/Default/npm/registry/jest-matcher-utils/-/jest-matcher-utils-24.9.0.tgz#f5b3661d5e628dffe6dd65251dfdae0e87c3a073"
   integrity sha1-9bNmHV5ijf/m3WUlHf2uDofDoHM=
@@ -7092,6 +7106,11 @@ min-document@^2.19.0:
   integrity sha1-e9KC4/WELtKVu3SM3Z8f+iyCRoU=
   dependencies:
     dom-walk "^0.1.0"
+
+min-indent@^1.0.0:
+  version "1.0.0"
+  resolved "https://agency-commerce.pkgs.visualstudio.com/_packaging/Default/npm/registry/min-indent/-/min-indent-1.0.0.tgz#cfc45c37e9ec0d8f0a0ec3dd4ef7f7c3abe39256"
+  integrity sha1-z8RcN+nsDY8KDsPdTvf3w6vjklY=
 
 mini-create-react-context@^0.3.0:
   version "0.3.2"
@@ -8529,7 +8548,7 @@ pretty-error@^2.0.2:
     renderkid "^2.0.1"
     utila "~0.4"
 
-pretty-format@^24.3.0, pretty-format@^24.9.0:
+pretty-format@^24.0.0, pretty-format@^24.3.0, pretty-format@^24.9.0:
   version "24.9.0"
   resolved "https://agency-commerce.pkgs.visualstudio.com/_packaging/Default/npm/registry/pretty-format/-/pretty-format-24.9.0.tgz#12fac31b37019a4eea3c11aa9a959eb7628aa7c9"
   integrity sha1-EvrDGzcBmk7qPBGqmpWet2KKp8k=
@@ -9510,6 +9529,14 @@ redent@^2.0.0:
     indent-string "^3.0.0"
     strip-indent "^2.0.0"
 
+redent@^3.0.0:
+  version "3.0.0"
+  resolved "https://agency-commerce.pkgs.visualstudio.com/_packaging/Default/npm/registry/redent/-/redent-3.0.0.tgz#e557b7998316bb53c9f1f56fa626352c6963059f"
+  integrity sha1-5Ve3mYMWu1PJ8fVvpiY1LGljBZ8=
+  dependencies:
+    indent-string "^4.0.0"
+    strip-indent "^3.0.0"
+
 redux-immutable-state-invariant@2.1.0:
   version "2.1.0"
   resolved "https://agency-commerce.pkgs.visualstudio.com/_packaging/Default/npm/registry/redux-immutable-state-invariant/-/redux-immutable-state-invariant-2.1.0.tgz#308fd3cc7415a0e7f11f51ec997b6379c7055ce1"
@@ -10341,7 +10368,7 @@ source-list-map@^2.0.0:
   resolved "https://agency-commerce.pkgs.visualstudio.com/_packaging/Default/npm/registry/source-list-map/-/source-list-map-2.0.1.tgz#3993bd873bfc48479cca9ea3a547835c7c154b34"
   integrity sha1-OZO9hzv8SEecyp6jpUeDXHwVSzQ=
 
-source-map-resolve@^0.5.0:
+source-map-resolve@^0.5.0, source-map-resolve@^0.5.2:
   version "0.5.2"
   resolved "https://agency-commerce.pkgs.visualstudio.com/_packaging/Default/npm/registry/source-map-resolve/-/source-map-resolve-0.5.2.tgz#72e2cc34095543e43b2c62b2c4c10d4a9054f259"
   integrity sha1-cuLMNAlVQ+Q7LGKyxMENSpBU8lk=
@@ -10675,6 +10702,13 @@ strip-indent@^2.0.0:
   version "2.0.0"
   resolved "https://agency-commerce.pkgs.visualstudio.com/_packaging/Default/npm/registry/strip-indent/-/strip-indent-2.0.0.tgz#5ef8db295d01e6ed6cbf7aab96998d7822527b68"
   integrity sha1-XvjbKV0B5u1sv3qrlpmNeCJSe2g=
+
+strip-indent@^3.0.0:
+  version "3.0.0"
+  resolved "https://agency-commerce.pkgs.visualstudio.com/_packaging/Default/npm/registry/strip-indent/-/strip-indent-3.0.0.tgz#c32e1cee940b6b3432c771bc2c54bcce73cd3001"
+  integrity sha1-wy4c7pQLazQyx3G8LFS8znPNMAE=
+  dependencies:
+    min-indent "^1.0.0"
 
 strip-json-comments@^2.0.1, strip-json-comments@~2.0.1:
   version "2.0.1"

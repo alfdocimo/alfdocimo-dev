@@ -1,2 +1,5 @@
 export default sectionName =>
-  `btn-${sectionName.replace(" ", "-").toLowerCase()}`;
+  `btn-${sectionName
+    .split(" ")
+    .join("-")
+    .toLowerCase()}`;
