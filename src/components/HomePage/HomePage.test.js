@@ -12,11 +12,13 @@ import { fireEvent } from "@testing-library/react";
 
 import initialState from "../../reducers/initialState";
 
+import { mapSectionToSideMenu } from "../../utils";
+
 const {
   vm: {
-    pages: { landing, about }
-  },
-  menu
+    pages: { landing, about },
+    menu
+  }
 } = initialState;
 
 jest.mock("../../selectors", () => ({
@@ -60,21 +62,38 @@ describe("[HomePage Component]", () => {
         Software Engineer
       </h2>
     `);
+
+      expect(getByText("Who is Alfredo?")).toMatchInlineSnapshot(`
+      <h1
+        class="About__title"
+      >
+        Who is Alfredo?
+      </h1>
+    `);
+
+      expect(getByText("A dude who likes arepas!")).toMatchInlineSnapshot(`
+      <span
+        class="About__content"
+      >
+        A dude who likes arepas!
+      </span>
+    `);
     });
   });
 
   describe("[Scroll Actions]", () => {
-    test("Its able to scroll to section when clicking on SideMenu Section", () => {
-      const { getByLabelText, getByText } = renderWithRedux(<HomePage />);
-      fireEvent.click(getByLabelText("icon: bars"));
-      fireEvent.click(getByText("About Me"));
-      expect(scrollIntoViewSpy).toHaveBeenCalledWith({
-        behavior: "smooth",
-        block: "end"
+    menu.forEach(({ section }) => {
+      test(`Its able to scroll to section when clicking on [${section}] Section`, () => {
+        const { getByTestId } = renderWithRedux(<HomePage />);
+        fireEvent.click(getByTestId(mapSectionToSideMenu(section)));
+        expect(scrollIntoViewSpy).toHaveBeenCalledWith({
+          behavior: "smooth",
+          block: "end"
+        });
       });
     });
 
-    test("Its able to scroll to section when clicking on More About Me Button", () => {
+    test("Its able to scroll to section when clicking on [More about me] Button", () => {
       const { getByText } = renderWithRedux(<HomePage />);
       fireEvent.click(getByText("More about me!"));
       expect(scrollIntoViewSpy).toHaveBeenCalledWith({

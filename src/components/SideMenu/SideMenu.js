@@ -3,6 +3,7 @@ import React from "react";
 import { Menu, Icon } from "antd";
 import "./style.less";
 import PropTypes from "prop-types";
+import { mapSectionToSideMenu } from "../../utils";
 
 const SideMenu = ({ items }) => {
   const handleClickSection = elem => {
@@ -16,7 +17,7 @@ const SideMenu = ({ items }) => {
         key={item.key}
         onClick={e => handleClickSection(e)}
         style={{ marginTop: "0px" }}
-        data-testid={`btn-${item.section.replace(" ", "-").toLowerCase()}`}
+        data-testid={mapSectionToSideMenu(item.section)}
       >
         <Icon type={item.sticker} />
         <span>{item.section}</span>
