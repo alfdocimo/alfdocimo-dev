@@ -31,7 +31,7 @@
     "cypress:open": "cypress open",
     "e2e-test": "cypress run",
     "e2e-test:record": "cypress run --record --key 379af14b-28c4-40fb-8c9c-cf5e080095ac",
-    "test:all": "npm-run-all -p start test e2e-test:record"
+    "test:all:concurrent": "concurrently -k -r -s first \"yarn start\" \"yarn test:CI\" \"yarn e2e-test:record\""
   },
   "author": "Cory House",
   "license": "MIT",
@@ -90,7 +90,6 @@
     "mini-css-extract-plugin": "0.6.0",
     "mockdate": "2.0.2",
     "node-sass": "4.12.0",
-    "npm-run-all": "4.1.5",
     "opn-cli": "4.1.0",
     "postcss-loader": "3.0.0",
     "prompt": "1.0.0",
