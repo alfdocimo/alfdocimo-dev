@@ -1,31 +1,24 @@
 language: node_js
-
 node_js:
-  # Node 10.3+ includes npm@6 which has good "npm ci" command
-  - 10.8
-
-# if using Ubuntu 16 need this library
-# https://github.com/cypress-io/cypress-documentation/pull/1647
+  - 10
 addons:
   apt:
     packages:
+      # Ubuntu 16+ does not install this dependency by default, so we need to install it ourselves
       - libgconf-2-4
-
 cache:
-  # cache both npm modules and Cypress binary
+  # Caches $HOME/.npm when npm ci is default script command
+  # Caches node_modules in all other cases
+  npm: true
   directories:
-    - ~/.npm
+    # we also need to cache folder with Cypress binary
     - ~/.cache
-override:
+install:
   - npm ci
-  - npm run cy:verify
+  - yarn
+script:
+  - yarn test
+  - yarn test:all:concurrent
 
-defaults: &defaults
-  script:
-    #   ## print all Travis environment variables for debugging
-    - $(npm bin)/print-env TRAVIS
-    - npm run start:ci &
-    - yarn test:all:concurrent
-    # after all tests finish running we need
-    # to kill all background jobs (like "npm start &")
-    - kill $(jobs -p) || true
+after_success:
+  - yarn test:cover:CI
