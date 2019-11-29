@@ -17,6 +17,7 @@ install:
   - yarn
 script:
   - yarn test:CI
+  - cypress install
   - yarn test:all:concurrent
 
 after_success:
