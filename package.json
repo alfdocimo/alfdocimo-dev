@@ -15,7 +15,7 @@
     "clean-dist": "yarn remove-dist && mkdir dist",
     "remove-dist": "rimraf ./dist",
     "prebuild": "yarn lint && yarn clean-dist",
-    "build": "babel-node tools/build.js && yarn open:dist",
+    "build": "babel-node tools/build.js",
     "test": "jest",
     "test:CI": "jest --forceExit",
     "test:cover": "yarn test -- --coverage ",
