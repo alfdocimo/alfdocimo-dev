@@ -106,20 +106,17 @@
     "react",
     "reactjs",
     "react-router",
-    "hot",
     "reload",
-    "hmr",
-    "live",
-    "edit",
     "webpack",
     "redux",
-    "flux",
-    "boilerplate",
-    "starter"
+    "firebase",
+    "alfdocimo",
+    "portfolio",
+    "cypress"
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/coryhouse/react-slingshot"
+    "url": "https://github.com/alfdocimo/alfdocimo-dev"
   },
   "jest": {
     "moduleNameMapper": {
