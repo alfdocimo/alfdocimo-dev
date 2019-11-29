@@ -44,8 +44,6 @@ describe("[HomePage Component]", () => {
     getSelectMenu.mockReturnValue(menu);
   });
 
-  afterAll(() => setTimeout(() => process.exit(), 1000));
-
   describe("[Landing Section]", () => {
     test("can render with redux with defaults", () => {
       const { getByText } = renderWithRedux(<HomePage />);
