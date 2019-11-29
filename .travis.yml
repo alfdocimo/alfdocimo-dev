@@ -19,8 +19,8 @@ script:
   - yarn test:CI
   - cypress install
   - yarn test:all:concurrent
+  - yarn prebuild
+  - yarn build
 
 after_success:
   - yarn test:cover:CI
-  - yarn prebuild
-  - yarn build
