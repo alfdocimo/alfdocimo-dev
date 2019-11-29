@@ -22,3 +22,5 @@ script:
 
 after_success:
   - yarn test:cover:CI
+  - yarn prebuild
+  - yarn build
