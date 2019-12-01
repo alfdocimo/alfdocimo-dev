@@ -1,5 +1,5 @@
 export default {
-  apiKey: "AIzaSyA830it-fbo_tEScqe66CiZ-Bf_OGtgNME",
+  apiKey: process.env.FIREBASE_API_KEY,
   authDomain: "alfdocimo-dev.firebaseapp.com",
   databaseURL: "https://alfdocimo-dev.firebaseio.com",
   projectId: "alfdocimo-dev",
