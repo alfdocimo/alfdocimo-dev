@@ -27,4 +27,4 @@ script:
 after_success:
   - yarn test:cover:CI
   - $TRAVIS_BRANCH = "master" &&
-  - yarn gh-pages-deploy
+    yarn gh-pages-deploy
