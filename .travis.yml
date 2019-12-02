@@ -6,6 +6,10 @@ addons:
     packages:
       # Ubuntu 16+ does not install this dependency by default, so we need to install it ourselves
       - libgconf-2-4
+
+branches:
+  only:
+    - develop
 cache:
   # Caches $HOME/.npm when npm ci is default script command
   # Caches node_modules in all other cases
@@ -22,5 +26,29 @@ script:
 
 after_success:
   - yarn test:cover:CI
-  - yarn prebuild
-  - yarn build
+
+
+language: node_js
+node_js:
+  - 10
+addons:
+  apt:
+    packages:
+      # Ubuntu 16+ does not install this dependency by default, so we need to install it ourselves
+      - libgconf-2-4
+branches:
+  only:
+  - master
+cache:
+  # Caches $HOME/.npm when npm ci is default script command
+  # Caches node_modules in all other cases
+  yarn: true
+  directories:
+    # we also need to cache folder with Cypress binary
+    - ~/.cache
+install:
+  - yarn
+script:
+  - yarn gh-pages-deploy
+
+
