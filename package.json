@@ -8,7 +8,8 @@
   },
   "main": "./dist",
   "scripts": {
-    "start": "concurrently -k -r -s first \"yarn open:src\" \"yarn lint:watch\"",
+    "start:dev": "concurrently -k -r -s first \"yarn open:src\" \"yarn lint:watch\"",
+    "start": "node server.js",
     "open:src": "babel-node tools/srcServer.js",
     "open:dist": "babel-node tools/distServer.js",
     "gh-pages-deploy": "babel-node tools/deployGithubPages.js",
@@ -27,7 +28,7 @@
     "cypress:open": "cypress open",
     "e2e-test": "cypress run",
     "e2e-test:record": "cypress run --record --key 379af14b-28c4-40fb-8c9c-cf5e080095ac",
-    "test:all:concurrent": "concurrently -k -r -s first \"yarn start\" \"yarn e2e-test:record\"",
+    "test:all:concurrent": "concurrently -k -r -s first \"yarn start:dev\" \"yarn e2e-test:record\"",
     "heroku-prebuild": "",
     "heroku-postbuild": "babel-node tools/build.js"
   },
