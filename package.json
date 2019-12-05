@@ -8,7 +8,8 @@
   },
   "main": "./dist",
   "scripts": {
-    "start": "concurrently -k -r -s first \"yarn open:src\" \"yarn lint:watch\"",
+    "start:dev": "concurrently -k -r -s first \"yarn open:src\" \"yarn lint:watch\"",
+    "start": "node server.j",
     "open:src": "babel-node tools/srcServer.js",
     "open:dist": "babel-node tools/distServer.js",
     "gh-pages-deploy": "babel-node tools/deployGithubPages.js",
