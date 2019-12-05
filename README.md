@@ -8,4 +8,5 @@
 Cypress: https://dashboard.cypress.io/projects/qtx1fz/runs
 
   <img src="https://media.giphy.com/media/OMeGDxdAsMPzW/giphy.gif"/>
+  
 </p>
