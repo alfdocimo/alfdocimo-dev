@@ -1,3 +1,4 @@
+/* eslint-disable no-case-declarations */
 import initialState from "./initialState";
 import { Types } from "../actions";
 
@@ -11,10 +12,19 @@ export default function globalReducer(state = initialState, action) {
     case Types.SET_VM:
       // eslint-disable-next-line no-console
       // why? TODO investigate no-case-declarations
-      // eslint-disable-next-line no-case-declarations
       const { vm } = action;
 
       return { ...state, vm };
+
+    case Types.SET_SIDE_MENU_COLLAPSED:
+      const { isCollapsed } = action;
+      console.log("globalReducer -> isCollapsed", {
+        ...state,
+        isSideMenuCollapsed: isCollapsed,
+      });
+
+      return { ...state, isSideMenuCollapsed: isCollapsed };
+
     default:
       return state;
   }

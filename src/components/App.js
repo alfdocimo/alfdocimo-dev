@@ -65,7 +65,13 @@ const App = () => {
             </Page>
           )}
         />
-        <Route component={NotFoundPage} />
+        <Route
+          component={() => (
+            <Page>
+              <NotFoundPage />
+            </Page>
+          )}
+        />
       </Switch>
     </div>
   );

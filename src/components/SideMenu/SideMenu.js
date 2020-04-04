@@ -3,13 +3,14 @@ import React from "react";
 import { Menu, Icon } from "antd";
 import "./style.less";
 import PropTypes from "prop-types";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 const SideMenu = ({ items }) => {
-  
+  const location = useLocation();
+
   const renderSections = (items) =>
     items.map((item) => (
-      <Menu.Item key={item.key} style={{ marginTop: "0px" }}>
+      <Menu.Item key={item.uri} style={{ marginTop: "0px" }}>
         <Link to={item.uri}>
           <Icon type={item.sticker} />
           <span>{item.section}</span>
@@ -21,6 +22,7 @@ const SideMenu = ({ items }) => {
     <Menu
       theme="dark"
       defaultSelectedKeys={["1"]}
+      selectedKeys={[location.pathname.replace("/", "")]}
       mode="inline"
       data-testid="side-menu"
     >

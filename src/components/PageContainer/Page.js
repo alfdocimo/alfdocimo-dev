@@ -1,6 +1,7 @@
-import React, { useState } from "react";
-import { useSelector } from "react-redux";
-import { getSelectMenu } from "../../selectors";
+import React from "react";
+import { setSideMenuCollapsed } from "../../actions";
+import { useSelector, useDispatch } from "react-redux";
+import { getSelectMenu, getIsSideMenuCollapsed } from "../../selectors";
 import PropTypes from "prop-types";
 
 import { Layout } from "antd";
@@ -9,27 +10,23 @@ import "./style.less";
 const { Content, Sider } = Layout;
 
 const HomePage = ({ children }) => {
-  const [state, setState] = useState({
-    collapsed: true,
-  });
-
-  const onCollapse = (collapsed) => {
-    setState({ collapsed });
-  };
-
-  const menu = useSelector(getSelectMenu);
+  const dispatch = useDispatch();
+  const sideMenuState = useSelector(getIsSideMenuCollapsed);
+  const sideMenu = useSelector(getSelectMenu);
+  const _handleOnCollapse = () =>
+    dispatch(setSideMenuCollapsed(!sideMenuState));
 
   return (
     <div className="HomePage">
       <Layout style={{ height: "100vh" }}>
         <Sider
           collapsible
-          collapsed={state.collapsed}
-          onCollapse={onCollapse}
+          collapsed={sideMenuState}
+          onCollapse={_handleOnCollapse}
           collapsedWidth={0}
           style={{ position: "absolute", height: "100%", zIndex: 1 }}
         >
-          {menu && <SideMenu items={menu} />}
+          {sideMenu && <SideMenu items={sideMenu} />}
         </Sider>
         <Layout style={{ height: "100vh" }}>
           <Content style={{ height: "100vh" }}>{children}</Content>
