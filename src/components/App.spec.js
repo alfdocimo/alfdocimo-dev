@@ -17,7 +17,7 @@ jest.mock("../selectors", () => ({
   getSelectLanding: jest.fn(() => mockInitialState.vm.pages.landing),
 }));
 
-let _location, getByText, debug;
+let _location, getByText;
 
 const renderAppInRoute = (route) =>
   renderWithRedux(
@@ -67,7 +67,7 @@ describe("[App]", () => {
   });
 
   describe("App [Side Menu] section", () => {
-    beforeEach(() => ({ debug } = renderAppInRoute("/")));
+    beforeEach(() => ({ getByText } = renderAppInRoute("/")));
     Object.values(mockInitialState.vm.menu).forEach(({ section, uri }) => {
       test(`renders correctly the text ${section} for the [Side Menu] section`, () => {
         expect(getByText(section)).toBeInTheDocument();
