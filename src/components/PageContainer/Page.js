@@ -17,7 +17,7 @@ const HomePage = ({ children }) => {
     dispatch(setSideMenuCollapsed(!sideMenuState));
 
   return (
-    <div className="HomePage">
+    <div className="Page">
       <Layout style={{ height: "100vh" }}>
         <Sider
           collapsible

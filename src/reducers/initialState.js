@@ -9,8 +9,8 @@ export default {
       about: { title: "Who is Alfredo?", content: "A dude who likes arepas!" },
     },
     menu: [
-      { key: "1", section: "Home", sticker: "smile" },
-      { key: "2", section: "About Me", sticker: "user" },
+      { key: "1", section: "Home", sticker: "smile", uri: "home" },
+      { key: "2", section: "About Me", sticker: "user", uri: "about-me" },
     ],
   },
   isSideMenuCollapsed: false,

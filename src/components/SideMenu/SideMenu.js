@@ -11,7 +11,7 @@ const SideMenu = ({ items }) => {
   const renderSections = (items) =>
     items.map((item) => (
       <Menu.Item key={item.uri} style={{ marginTop: "0px" }}>
-        <Link to={item.uri}>
+        <Link to={item.uri} data-testid={`btn-${item.uri}`}>
           <Icon type={item.sticker} />
           <span>{item.section}</span>
         </Link>

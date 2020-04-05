@@ -18,10 +18,6 @@ export default function globalReducer(state = initialState, action) {
 
     case Types.SET_SIDE_MENU_COLLAPSED:
       const { isCollapsed } = action;
-      console.log("globalReducer -> isCollapsed", {
-        ...state,
-        isSideMenuCollapsed: isCollapsed,
-      });
 
       return { ...state, isSideMenuCollapsed: isCollapsed };
 
