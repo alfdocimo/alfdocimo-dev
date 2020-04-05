@@ -2,26 +2,47 @@ import React from "react";
 
 import Landing from "../Landing";
 
-import { render } from "@testing-library/react";
+import { render, fireEvent } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
+import { MemoryRouter, Route } from "react-router-dom";
 
 jest.mock("../style.less", () => ({
-  Landing: "Landing"
+  Landing: "Landing",
 }));
 
-describe("[Landing Component]", () => {
-  test("can render with with default props", () => {
-    const { getByText } = render(
-      <Landing
-        id="test-id"
-        title="test-title"
-        subtitle="test-subtitle"
-        cta="test-cta"
-      />
-    );
+let getByText;
+let _location;
 
-    expect(getByText("test-title")).toHaveTextContent("test-title");
-    expect(getByText("test-subtitle")).toHaveTextContent("test-subtitle");
-    expect(getByText("test-cta")).toHaveTextContent("test-cta");
+describe("[Landing Component]", () => {
+  beforeEach(() => {
+    ({ getByText } = render(
+      <MemoryRouter>
+        <Route
+          path="*"
+          render={({ location }) => {
+            _location = location;
+            return null;
+          }}
+        />
+        <Landing
+          id="test-id"
+          title="test-title"
+          subtitle="test-subtitle"
+          cta="test-cta"
+        />
+      </MemoryRouter>
+    ));
+  });
+
+  test("can render with with default props", () => {
+    expect(getByText("test-title")).toBeInTheDocument();
+    expect(getByText("test-subtitle")).toBeInTheDocument();
+    expect(getByText("test-cta")).toBeInTheDocument();
+    expect(_location.pathname).toBe("/");
+  });
+
+  test("should be able to go to [about-me] page when clicking the cta button", () => {
+    fireEvent.click(getByText("test-cta"));
+    expect(_location.pathname).toBe("/about-me");
   });
 });

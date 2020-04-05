@@ -6,7 +6,7 @@ import { render } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
 
 jest.mock("../style.less", () => ({
-  About: "About"
+  About: "About",
 }));
 
 describe("[About Component]", () => {
@@ -15,7 +15,7 @@ describe("[About Component]", () => {
       <About id="test-id" title="test-title" content="test-content" />
     );
 
-    expect(getByText("test-title")).toHaveTextContent("test-title");
-    expect(getByText("test-content")).toHaveTextContent("test-content");
+    expect(getByText("test-title")).toBeInTheDocument();
+    expect(getByText("test-content")).toBeInTheDocument();
   });
 });

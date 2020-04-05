@@ -18,7 +18,7 @@ const About = ({ id, title, content }) => {
 About.propTypes = {
   id: PropTypes.string,
   title: PropTypes.string,
-  content: PropTypes.string
+  content: PropTypes.string,
 };
 
 export default About;

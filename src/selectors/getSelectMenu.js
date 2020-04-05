@@ -1,2 +1,2 @@
 import isSelectorPresent from "./isSelectorPresent";
-export default state => isSelectorPresent(state.homePageReducer.vm.menu);
+export default (state) => isSelectorPresent(state.globalReducer.vm.menu);
