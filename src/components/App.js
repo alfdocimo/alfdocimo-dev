@@ -9,7 +9,7 @@ import PropTypes from "prop-types";
 import React, { useEffect } from "react";
 import { getSelectAbout, getSelectLanding } from "../selectors";
 import { useSelector, useDispatch } from "react-redux";
-import firebase from "../firebase";
+import { fbClient } from "../../firebase";
 import { setVM } from "../actions";
 
 import { hot } from "react-hot-loader";
@@ -24,20 +24,18 @@ const App = () => {
 
   useEffect(() => {
     // Check if VM is stored in sessionStorage
+    async function populateVM() {
+      const vm = await fbClient.getVM();
+      dispatch(setVM(vm));
+      window.sessionStorage.setItem("vm", JSON.stringify(vm));
+    }
+
     const vm = window.sessionStorage.getItem("vm");
     if (vm) {
       dispatch(setVM(JSON.parse(vm)));
     } else {
       // When the component mounts, fetch data and populate VM
-      firebase
-        .firestore()
-        .collection("vm")
-        .get()
-        .then(({ docs }) => {
-          const vm = docs.map((doc) => doc.data())[0];
-          window.sessionStorage.setItem("vm", JSON.stringify(vm));
-          dispatch(setVM(vm));
-        });
+      populateVM();
     }
   }, []);
 
