@@ -2,20 +2,20 @@
 /// <reference types="cypress" />
 
 import { selectors } from "../../shared";
-
-const landingData = {
-  title: "Alfredo Narváez Docimo",
-  subtitle: "Full Stack JavaScript Engineer",
-  cta: "More about me!",
-};
+import { fbClient } from "../../firebase";
 
 describe("E2E [Landing] Integration test", () => {
-  beforeEach(() => {
+  let vm = { pages: { landing: {} } };
+  before(() => {
     cy.visit("/");
   });
 
   describe("retrieves information correctly from the firestore", () => {
-    Object.keys(landingData).forEach((data) => {
+    before(async () => {
+      vm = await fbClient.getVM();
+    });
+
+    Object.keys(vm.pages.landing).forEach((data) => {
       it(`renders correctly [${data}] from the VM`, () => {
         cy.get(`[data-testid="${selectors.pages.landing[data]}"]`).should(
           "have.text",
@@ -23,9 +23,9 @@ describe("E2E [Landing] Integration test", () => {
         );
       });
     });
+  });
 
-    it("should be able to click the [More about me] button and go to [/about-me] page", () => {
-      cy.get(`[data-testid="${selectors.pages.landing.cta}"]`).click();
-    });
+  it("should be able to click the [More about me] button and go to [/about-me] page", () => {
+    cy.get(`[data-testid="${selectors.pages.landing.cta}"]`).click();
   });
 });
