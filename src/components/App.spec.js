@@ -6,7 +6,7 @@ import "@testing-library/jest-dom/extend-expect";
 import { renderWithRedux } from "../utils/testing";
 import mockInitialState from "../reducers/initialState";
 
-import { MemoryRouter, Route, Switch } from "react-router-dom";
+import { MemoryRouter, Route } from "react-router-dom";
 
 import { fireEvent, cleanup } from "@testing-library/react";
 
@@ -22,15 +22,13 @@ let _location, getByText;
 const renderAppInRoute = (route) =>
   renderWithRedux(
     <MemoryRouter initialEntries={[route]}>
-      <Switch>
-        <Route
-          path={route}
-          render={({ location }) => {
-            _location = location;
-            return null;
-          }}
-        />
-      </Switch>
+      <Route
+        path={route}
+        render={({ location }) => {
+          _location = location;
+          return null;
+        }}
+      />
 
       <App />
     </MemoryRouter>
@@ -51,9 +49,6 @@ describe("[App]", () => {
     test("App goes to [/about-me] when clicking on [more about me] button", () => {
       fireEvent.click(getByText(mockInitialState.vm.pages.landing.cta));
       expect(_location.pathname).toBe("/about-me");
-      expect(
-        getByText(mockInitialState.vm.pages.about.title)
-      ).toBeInTheDocument();
     });
   });
 

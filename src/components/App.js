@@ -41,7 +41,7 @@ const App = () => {
   }, []);
 
   return (
-    <div>
+    <>
       <Page>
         <AnimatedSwitch
           atEnter={{ opacity: 0 }}
@@ -64,7 +64,7 @@ const App = () => {
           <Route component={() => <NotFoundPage />} />
         </AnimatedSwitch>
       </Page>
-    </div>
+    </>
   );
 };
 
