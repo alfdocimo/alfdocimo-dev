@@ -1,12 +1,12 @@
 /* eslint-disable import/no-named-as-default */
 import { Route, Switch } from "react-router-dom";
 
+import routes from "../routes";
+
 import Page from "./PageContainer";
-import { Landing, About } from "./Content";
 import NotFoundPage from "./NotFoundPage";
 import PropTypes from "prop-types";
 import React, { useEffect } from "react";
-import { getSelectAbout, getSelectLanding } from "../selectors";
 import { useSelector, useDispatch } from "react-redux";
 import { fbClient } from "../../firebase";
 import { setVM } from "../actions";
@@ -38,30 +38,25 @@ const App = () => {
     }
   }, []);
 
-  const aboutState = useSelector(getSelectAbout);
-  const landingContent = useSelector(getSelectLanding);
-
   return (
     <div>
       <Switch>
-        <Route
-          exact
-          path={["/", "/home"]}
-          component={() => (
-            <Page>
-              <Landing {...landingContent} />
-            </Page>
-          )}
-        />
-        <Route
-          exact
-          path="/about-me"
-          component={() => (
-            <Page>
-              <About {...aboutState} />
-            </Page>
-          )}
-        />
+        {routes.map(({ Component, name, path, selector }) => {
+          const pageProps = useSelector(selector);
+
+          return (
+            <Route
+              key={name}
+              exact
+              path={path}
+              component={() => (
+                <Page>
+                  <Component {...pageProps} />
+                </Page>
+              )}
+            />
+          );
+        })}
         <Route
           component={() => (
             <Page>
