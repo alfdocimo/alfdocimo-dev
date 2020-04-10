@@ -3,7 +3,7 @@ import "./style.less";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import { Button } from "antd";
-import { selectors } from "../../../../../shared";
+import { selectors } from "../../../../shared";
 
 const Landing = ({ id, title, subtitle, cta }) => {
   return (

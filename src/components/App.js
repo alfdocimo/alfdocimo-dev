@@ -2,8 +2,7 @@
 import { Route, Switch } from "react-router-dom";
 
 import Page from "./PageContainer";
-import About from "./Content/Sections/About";
-import Landing from "./Content/Sections/Landing";
+import { Landing, About } from "./Content";
 import NotFoundPage from "./NotFoundPage";
 import PropTypes from "prop-types";
 import React, { useEffect } from "react";

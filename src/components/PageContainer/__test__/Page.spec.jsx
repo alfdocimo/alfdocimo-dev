@@ -7,8 +7,7 @@ import { renderWithRedux } from "../../../utils/testing";
 import initialState from "../../../reducers/initialState";
 import { getIsSideMenuCollapsed, getSelectMenu } from "../../../selectors";
 import { MemoryRouter, Route } from "react-router-dom";
-import About from "../../Content/Sections/About";
-import Landing from "../../Content/Sections/Landing";
+import { Landing, About } from "../../Content/";
 
 jest.mock("../../../selectors", () => ({
   getIsSideMenuCollapsed: jest.fn(),
