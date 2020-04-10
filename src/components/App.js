@@ -1,5 +1,5 @@
 /* eslint-disable import/no-named-as-default */
-import { Route, Switch } from "react-router-dom";
+import { Route } from "react-router-dom";
 
 import routes from "../routes";
 
@@ -10,6 +10,8 @@ import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { fbClient } from "../../firebase";
 import { setVM } from "../actions";
+
+import { AnimatedSwitch } from "react-router-transition";
 
 import { hot } from "react-hot-loader";
 import "./style.less";
@@ -40,31 +42,28 @@ const App = () => {
 
   return (
     <div>
-      <Switch>
-        {routes.map(({ Component, name, path, selector }) => {
-          const pageProps = useSelector(selector);
+      <Page>
+        <AnimatedSwitch
+          atEnter={{ opacity: 0 }}
+          atLeave={{ opacity: 0 }}
+          atActive={{ opacity: 1 }}
+          className="switch-wrapper"
+        >
+          {routes.map(({ Component, name, path, selector }) => {
+            const pageProps = useSelector(selector);
 
-          return (
-            <Route
-              key={name}
-              exact
-              path={path}
-              component={() => (
-                <Page>
-                  <Component {...pageProps} />
-                </Page>
-              )}
-            />
-          );
-        })}
-        <Route
-          component={() => (
-            <Page>
-              <NotFoundPage />
-            </Page>
-          )}
-        />
-      </Switch>
+            return (
+              <Route
+                key={name}
+                exact
+                path={path}
+                component={() => <Component {...pageProps} />}
+              />
+            );
+          })}
+          <Route component={() => <NotFoundPage />} />
+        </AnimatedSwitch>
+      </Page>
     </div>
   );
 };

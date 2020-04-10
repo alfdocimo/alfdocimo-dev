@@ -18,19 +18,18 @@ const HomePage = ({ children }) => {
 
   return (
     <div className="Page">
-      <Layout style={{ height: "100vh" }}>
+      <Layout className="Page__LayoutContainer">
         <Sider
           collapsible
           collapsed={sideMenuState}
           onCollapse={_handleOnCollapse}
           collapsedWidth={0}
-          style={{ position: "absolute", height: "100%", zIndex: 1 }}
+          className="Page__LayoutSider"
         >
           {sideMenu && <SideMenu items={sideMenu} />}
         </Sider>
-        <Layout style={{ height: "100vh" }}>
-          <Content style={{ height: "100vh" }}>{children}</Content>
-        </Layout>
+
+        <Content>{children}</Content>
       </Layout>
     </div>
   );

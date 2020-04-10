@@ -43,6 +43,7 @@
     "react-dom": "16.11.0",
     "react-redux": "7.1.1",
     "react-router-dom": "5.1.2",
+    "react-router-transition": "^2.0.0",
     "redux": "4.0.4",
     "redux-thunk": "2.3.0"
   },
@@ -51,6 +52,7 @@
     "@babel/core": "7.4.4",
     "@babel/node": "7.2.2",
     "@babel/plugin-proposal-class-properties": "7.4.4",
+    "@babel/plugin-transform-modules-commonjs": "^7.9.0",
     "@babel/plugin-transform-react-constant-elements": "7.2.0",
     "@babel/plugin-transform-runtime": "7.5.0",
     "@babel/polyfill": "7.4.4",
@@ -61,7 +63,7 @@
     "autoprefixer": "9.5.1",
     "babel-core": "7.0.0-bridge.0",
     "babel-eslint": "10.0.1",
-    "babel-jest": "24.8.0",
+    "babel-jest": "25.3.0",
     "babel-loader": "8.0.6",
     "babel-plugin-transform-react-remove-prop-types": "0.4.24",
     "browser-sync": "2.26.7",
@@ -82,7 +84,7 @@
     "history": "4.9.0",
     "html-webpack-plugin": "3.2.0",
     "identity-obj-proxy": "3.0.0",
-    "jest": "24.8.0",
+    "jest": "25.3.0",
     "jest-cli": "24.8.0",
     "json-loader": "0.5.7",
     "less": "2.7.3",
@@ -132,6 +134,9 @@
     ],
     "setupFiles": [
       "raf/polyfill"
+    ],
+    "transformIgnorePatterns": [
+      "<rootDir>/node_modules/(?!(react-router-transition)/)"
     ]
   },
   "babel": {
@@ -166,7 +171,8 @@
         ],
         "plugins": [
           "@babel/plugin-transform-runtime",
-          "@babel/plugin-proposal-class-properties"
+          "@babel/plugin-proposal-class-properties",
+          "@babel/plugin-transform-modules-commonjs"
         ]
       }
     }
